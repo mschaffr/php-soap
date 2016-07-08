@@ -1,5 +1,5 @@
 {
-    "name": "jugemu/soap",
+    "name": "tongoli/php-soap",
     "description": "Simple library for generating PHP Soap Clients",
     "keywords": ["soap", "wsdl"],
     "license": "MIT",
@@ -7,12 +7,12 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Jugemu\\Soap\\": ["src/", "lib/"]
+            "Wsdl2PhpGenerator\\Soap\\": ["src/", "lib/"]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jugemu\\Soap\\Tests\\": ["tests/src"]
+            "Wsdl2PhpGenerator\\Soap\\Tests\\": ["tests/src"]
         }
     },
     "require": {

@@ -1,4 +1,5 @@
 <?php
+
 namespace Wsdl2PhpGenerator\Tests\Functional;
 
 use RecursiveDirectoryIterator;
