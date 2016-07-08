@@ -1,22 +1,22 @@
 {
-    "name": "wsdl2phpgenerator/wsdl2phpgenerator",
-    "description": "Simple class library for generating php classes from a wsdl file.",
+    "name": "jugemu/soap",
+    "description": "Simple library for generating PHP Soap Clients",
     "keywords": ["soap", "wsdl"],
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Wsdl2PhpGenerator\\": ["src/", "lib/"]
+            "Jugemu\\Soap\\": ["src/", "lib/"]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Wsdl2PhpGenerator\\Tests\\": ["tests/src"]
+            "Jugemu\\Soap\\Tests\\": ["tests/src"]
         }
     },
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.5.0",
         "ext-soap": "*",
         "symfony/options-resolver": "~3.0"
     },
