@@ -153,8 +153,8 @@ class Service implements ClassGenerator
 
         // Create the constructor
         $comment = new PhpDocComment();
-        $comment->addParam(PhpDocElementFactory::getParam('array', 'options', 'A array of config values'));
         $comment->addParam(PhpDocElementFactory::getParam('string', 'wsdl', 'The wsdl file to use'));
+        $comment->addParam(PhpDocElementFactory::getParam('array', 'options', 'A array of config values'));
 
         $source = '
   foreach (self::$classmap as $key => $value) {
@@ -163,12 +163,9 @@ class Service implements ClassGenerator
     }
   }' . PHP_EOL;
         $source .= '  $options = array_merge(' . var_export($this->config->get('soapClientOptions'), true) . ', $options);' . PHP_EOL;
-        $source .= '  if (!$wsdl) {' . PHP_EOL;
-        $source .= '    $wsdl = \'' . $this->config->get('inputFile') . '\';' . PHP_EOL;
-        $source .= '  }' . PHP_EOL;
         $source .= '  parent::__construct($wsdl, $options);' . PHP_EOL;
 
-        $function = new PhpFunction('public', '__construct', 'array $options = array(), $wsdl = null', $source, $comment);
+        $function = new PhpFunction('public', '__construct', '$wsdl, array $options = array()', $source, $comment);
 
         // Add the constructor
         $this->class->addFunction($function);
@@ -188,6 +185,18 @@ class Service implements ClassGenerator
 
         // Add the classmap variable
         $this->class->addVariable($var);
+
+        // Add doc block for get classmap method
+        $comment = new PhpDocComment();
+        $comment->setReturn(PhpDocElementFactory::getReturn('array', 'Return array classmap'));
+
+        // Create access to classmap
+        $source = '
+  return self::$classmap;
+        '. PHP_EOL;
+        $function = new PhpFunction('public', 'getClassmap', '', $source, $comment);
+
+        $this->class->addFunction($function);
 
         // Add all methods
         foreach ($this->operations as $operation) {

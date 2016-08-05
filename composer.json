@@ -1,5 +1,5 @@
 {
-    "name": "tongoli/php-soap",
+    "name": "mschaffr/php-soap",
     "description": "Simple library for generating PHP Soap Clients",
     "keywords": ["soap", "wsdl"],
     "license": "MIT",
